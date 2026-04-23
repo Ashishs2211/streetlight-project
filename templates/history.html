@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>History</title>
+
+<style>
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+padding:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+background:#1e293b;
+}
+
+th,td{
+padding:14px;
+border:1px solid #334155;
+text-align:center;
+}
+
+a{
+color:#22c55e;
+text-decoration:none;
+font-size:20px;
+}
+</style>
+
+</head>
+<body>
+
+<a href="/">⬅ Back to Dashboard</a>
+
+<h1>Detection History</h1>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Image Name</th>
+<th>Fault Count</th>
+<th>Date</th>
+</tr>
+
+{% for row in rows %}
+<tr>
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
+<td>{{ row[2] }}</td>
+<td>{{ row[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

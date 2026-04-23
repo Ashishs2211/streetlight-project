@@ -1,0 +1,27 @@
+# ============================================================
+# YOLOv8 Dataset Configuration
+# File: configs/streetlight.yaml
+# ============================================================
+
+# Root path to your dataset (update this to your absolute path)
+path: ../data
+
+# Relative paths to image directories
+train: images/train
+val:   images/val
+test:  images/test
+
+# Number of object classes
+nc: 2
+
+# Class names (order must match annotation class IDs)
+names:
+  0: functional          # Streetlight is ON (working)
+  1: non_functional      # Streetlight is OFF (faulty/outage)
+
+# ============================================================
+# Class Distribution Tips:
+#   - Aim for roughly equal samples per class (balanced dataset)
+#   - Minimum: 200 images per class for reasonable performance
+#   - Recommended: 500+ images per class for production use
+# ============================================================

@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['Not Working', 'Working']
+
+roboflow:
+  workspace: ashishs-workspace-f43gs
+  project: streetlight-detection-8iznv
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/ashishs-workspace-f43gs/streetlight-detection-8iznv/dataset/1

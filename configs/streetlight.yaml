@@ -1,0 +1,9 @@
+path: ../datasets/data
+
+train: train/images
+val: valid/images
+
+nc: 2
+names:
+  0: Not Working
+  1: Working
