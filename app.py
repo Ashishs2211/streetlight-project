@@ -18,7 +18,10 @@ os.makedirs(RESULT_FOLDER, exist_ok=True)
 
 DB_NAME = "streetlight.db"
 MODEL_PATH = "runs/detect/models/streetlight_yolov85/weights/best.pt"
-camera = cv2.VideoCapture(0)
+if os.environ.get("RENDER"):
+    camera = None
+else:
+    camera = cv2.VideoCapture(0)
 def get_stats():
 
     conn = sqlite3.connect(DB_NAME)
@@ -263,6 +266,10 @@ def camera_page():
 
 @app.route("/video_feed")
 def video_feed():
+
+    if camera is None:
+        return "Camera not available on cloud server"
+
     return Response(
         generate_frames(),
         mimetype='multipart/x-mixed-replace; boundary=frame'
@@ -273,8 +280,8 @@ def video_feed():
 @app.route("/capture_detect", methods=["POST"])
 def capture_detect():
 
-    if not logged_in():
-        return redirect("/login")
+    if camera is None:
+        return "Camera not available on cloud server"
 
     success, frame = camera.read()
 
